@@ -1,7 +1,9 @@
-#import "string.cpp"
+#include "string.cpp"
+#include <iostream>
 
 int main()
 {
-	/* code */
+	string hello;
+	std::cout << hello.c_str() << std::endl;
 	return 0;
 }
