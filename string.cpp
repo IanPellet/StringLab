@@ -1,7 +1,8 @@
 #include "string.h"
 
-string::string() {
-    string_ = new char[12];
+string::string() { // dummy constructor
+	capacity_ = 12;
+    string_ = new char[capacity_];
     string_[0] = 'H';
     string_[1] = 'e';
     string_[2] = 'l';
@@ -10,11 +11,16 @@ string::string() {
     string_[5] = '\0';
 }
 
+char* string::c_str(){ // returns the content of the string
+	return string_;
+}
+
+// Member C
 string::~string(){ // destructor
 	delete []string_;
 	string_ = nullptr;
 }
 
-char* string::c_str(){
-	return string_;
-}
+int string::capacity(){ // returns the memory allocated to the array of char
+	return capacity_;
+} 
