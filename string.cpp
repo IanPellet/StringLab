@@ -10,6 +10,11 @@ string::string() {
     string_[5] = '\0';
 }
 
+string::~string(){ // destructor
+	delete []string_;
+	string_ = nullptr;
+}
+
 char* string::c_str(){
 	return string_;
 }
