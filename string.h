@@ -17,7 +17,17 @@ class string{
 		string& operator=(char a);
 		string operator+(const string&, const char*);
 
-
+		//Member B
+		string(char &string);	//constructor from a c-sting
+        	size_t length();
+        	size_t max_size();
+        	void resize(size_t n, char c);
+        	string operator=(const string&);
+        	string operator+(const string&);
+        	string operator=(const string string&);
+		string operator+(char c);
+		
+		
 		// Member C
 		~string(); // destructor
 		int capacity(); // returns the memory allocated to the array of char
