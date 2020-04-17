@@ -10,7 +10,7 @@ typedef long unsigned int size_t;
 
 class string{
 	public :
-		string(); // constructor
+		string() = default; // constructor
 
 		// Member A
 		//µstring(const string a); //copy constructor
