@@ -1,6 +1,6 @@
 #include "string.h"
 
-string::string() { // dummy constructor
+/*string::string() { // dummy constructor
 	capacity_ = 12;
     string_ = new char[capacity_];
     string_[0] = 'H';
@@ -9,7 +9,7 @@ string::string() { // dummy constructor
     string_[3] = 'l';
     string_[4] = 'o';
     string_[5] = '\0';
-}
+}*/
 
 char* string::c_str(){ // returns the content of the string
 	return string_;

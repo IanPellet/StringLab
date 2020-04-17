@@ -1,15 +1,18 @@
 #include "string.cpp"
 #include <iostream>
+#include <iterator>
 
 int main()
 {
 	// Dummy constructor test (can be deleted once a real constructor is implemented)
-	string hello;
-	std::cout << hello.c_str() << std::endl;
+	//string hello();
+	//std::cout << hello.c_str() << std::endl;
 
 // Member C
 	// capacity test (will need to be reimplemented once a real constructor have been made)
-	bool capatest = hello.capacity()==12;
+	char helloc[] = "Hello";
+	string hello(helloc);
+	bool capatest = hello.capacity() == std::end(helloc) - std::begin(helloc) - 1;
 	std::cout << "Capacity : ";
 	if(capatest){
 		std::cout << "ok" << std::endl;
