@@ -11,23 +11,23 @@ class string{
 
 		// Member A
 		//µstring(const string a); //copy constructor
-		char* c_str(); 
+		char* c_str();
 		//int size(); //method which will count number of nodes in string
 		//void clear(); //method which will delete all nodes and set first pointer to null
 		//string& operator=(char a);
 		//string operator+(const string&, const char*);
 
 		//Member B
-		//string(char &string);	//constructor from a c-sting
-        //size_t length();
+		string(char* c_string);	//constructor from a c-sting
+        int length();
         //size_t max_size();
         //void resize(size_t n, char c);
         //string operator=(const string&);
         //string operator+(const string&);
         //string operator=(const string string&);
 		//string operator+(char c);
-		
-		
+
+
 		// Member C
 		~string(); // destructor
 		int capacity(); // returns the memory allocated to the array of char
