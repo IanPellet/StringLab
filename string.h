@@ -5,6 +5,8 @@
 
 };*/
 
+typedef unsigned int size_t;
+
 class string{
 	public :
 		string(); // constructor
@@ -30,14 +32,14 @@ class string{
 		
 		// Member C
 		~string(); // destructor
-		int capacity(); // returns the memory allocated to the array of char
+		size_t capacity(); // returns the memory allocated to the array of char
 		//bool empty(); // true if length = 0
 		//reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
 		//string& operator=(const char* s); // assigns the value s to the string
 		//string operator+(const string& lhr, const string& rhs); // returns the concatenation of lhr adn rhs
 	protected :
 		char* string_; // dynamic array containing the string's chars
-		int capacity_ = 0; // needs to be updated each time we allocate or desallocate memory space
+		size_t capacity_ = 0; // needs to be updated each time we allocate or desallocate memory space
 
 	//private:
 	//	node * first = nullptr;			//first pointer to the first node (letter) which is empty in the beggining

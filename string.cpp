@@ -21,6 +21,6 @@ string::~string(){ // destructor
 	string_ = nullptr;
 }
 
-int string::capacity(){ // returns the memory allocated to the array of char
+size_t string::capacity(){ // returns the memory allocated to the array of char
 	return capacity_;
 } 
