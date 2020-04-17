@@ -7,6 +7,7 @@
 
 typedef unsigned int size_t;
 
+
 class string{
 	public :
 		string(); // constructor
