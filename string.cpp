@@ -18,7 +18,12 @@ char* string::c_str(){ // returns the content of the string
 //member B
 string::string(char* c_string)
 {
-    capacity_ = 12;
+    int j = 0;
+    while(c_string[j]!='\0')
+    {
+        j++;
+    }
+    capacity_ = j;
     string_ = new char[capacity_];
     int i = 0;
     do
