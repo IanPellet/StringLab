@@ -44,6 +44,21 @@ int string::length()
     return i;
 }
 
+void string::resize(size_t n, char c)
+{
+    if (length()<n)
+    {
+        for(int i=length(); i<n;i++)
+        {
+            string_[i]=c;
+        }
+    }
+    for(int j=n; j<capacity_;j++)
+    {
+        string_[j]='\0';
+    }
+}
+
 // Member C
 string::~string(){ // destructor
 	delete []string_;
