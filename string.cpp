@@ -53,3 +53,7 @@ string::~string(){ // destructor
 size_t string::capacity(){ // returns the memory allocated to the array of char
 	return capacity_;
 }
+
+bool string::empty(){
+	return length()==0;
+}
