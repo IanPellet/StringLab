@@ -1,4 +1,4 @@
-#include "string.cpp"
+#include "string.h"
 #include <iostream>
 
 int main()
