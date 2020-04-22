@@ -1,21 +1,43 @@
-#include <memory> // needed to use an allocator
+typedef long unsigned int size_t;
 
-struct node    // node which will contain a letter and a pointer to next node with next letter
+int char_length(char * a)		//function which will count the length of char*
 {
-	char value;			//letter
-	node*next = nullptr;		//pointer to next node
-
-};
+	// checking the length of parameter "a"
+	int counter = 0;
+	char n = a[counter];
+	while (n != '\0')
+	{
+		counter++;
+		n = a[counter];
+	}
+	return counter;
+	// counter is the length of parameter "a"
+}
 
 class string{
 	public :
+		static int HowManyStrings();
+		string() = default; // constructor
+		
+
 		// Member A
-		string(const string a); //copy constructor
+		string(const string a);  //copy constructor
 		char* c_str(); 
-		int size(); //method which will count number of nodes in string
-		void clear(); //method which will delete all nodes and set first pointer to null
-		string& operator=(char a);
-		string operator+(const string&, const char*);
+		size_t size(); //method which will count number of chars in string
+		void clear(); //method which will delete all chars 
+		string& operator=(char* a);
+		string operator+(const char* a);
+
+		
+		//Member B
+		string(char* c_string);	//constructor from a c-sting
+    int length();
+   	//size_t max_size();
+   	void resize(size_t n, char c);
+    //string operator=(const string&);
+    //string operator+(const string&);
+    //string operator=(const string string&);
+		//string operator+(char c);
 
 		//Member B
 		string(char &string);	//constructor from a c-sting
@@ -30,17 +52,17 @@ class string{
 
 		// Member C
 		~string(); // destructor
-		int capacity(); // returns the memory allocated to the array of char
+		size_t capacity(); // returns the memory allocated to the array of char
 		bool empty(); // true if length = 0
-		reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
-		string& operator=(const char* s); // assigns the value s to the string
-		string operator+(const string& lhr, const string& rhs); // returns the concatenation of lhr adn rhs
-
+		//reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
+		//string& operator=(const char* s); // assigns the value s to the string
+		//string operator+(const string& lhr, const string& rhs); // returns the concatenation of lhr adn rhs
+  
 	protected :
-		char* string_; // pointer to the array containing the char of our string
-		allocator<char> alloc_; // will be used to manage the string's memory space
-		int capacity_; // needs to be updated each time we allocate or desallocate memory space
-
+		char* string_; // dynamic array containing the string's chars
+		size_t capacity_ = 0; // needs to be updated each time we allocate or desallocate memory space
+		int length;
 	private:
-		node * first = nullptr;			//first pointer to the first node (letter) which is empty in the beggining
+		static int num_strings;
 };
+
