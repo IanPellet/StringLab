@@ -19,8 +19,10 @@ string::string() { // dummy constructor
     string_[4] = 'o';
     string_[5] = '\0';
 
+
 	num_strings++;
 }
+
 
 string::string(const char* s, int size)
 {
@@ -91,6 +93,50 @@ string string::operator+(const char* a)
 }
 
 
+//member B
+string::string(char* c_string)
+{
+    int j = 0;
+    while(c_string[j]!='\0')
+    {
+        j++;
+    }
+    capacity_ = j;
+    string_ = new char[capacity_];
+    int i = 0;
+    do
+    {
+        string_[i] = c_string[i];
+        i++;
+    }
+    while(c_string[i]!='\0');
+}
+
+int string::length()
+{
+    int i = 0;
+    while(string_[i]!='\0')
+    {
+        i++;
+    }
+    return i;
+}
+
+void string::resize(size_t n, char c)
+{
+    if (length()<n)
+    {
+        for(int i=length(); i<n;i++)
+        {
+            string_[i]=c;
+        }
+    }
+    for(int j=n; j<capacity_;j++)
+    {
+        string_[j]='\0';
+    }
+}
+
 // Member C
 string::~string(){ // destructor
 	delete []string_;
@@ -100,4 +146,8 @@ string::~string(){ // destructor
 
 size_t string::capacity(){ // returns the memory allocated to the array of char
 	return capacity_;
-} 
+}
+
+bool string::empty(){
+	return length()==0;
+}
