@@ -21,21 +21,22 @@ class string{
 		
 
 		// Member A
-		//string(const string& a);  //copy constructor
+		string(const string a);  //copy constructor
 		char* c_str(); 
-		//size_t size(); //method which will count number of chars in string
-		//void clear(); //method which will delete all chars 
-		//string& operator=(char* a);
-		//string operator+(const char* a);
+		size_t size(); //method which will count number of chars in string
+		void clear(); //method which will delete all chars 
+		string& operator=(char* a);
+		string operator+(const char* a);
 
+		
 		//Member B
 		string(char* c_string);	//constructor from a c-sting
-        int length();
-   		//size_t max_size();
-   		void resize(size_t n, char c);
-    	//string operator=(const string&);
-    	//string operator+(const string&);
-    	//string operator=(const string string&);
+    int length();
+   	//size_t max_size();
+   	void resize(size_t n, char c);
+    //string operator=(const string&);
+    //string operator+(const string&);
+    //string operator=(const string string&);
 		//string operator+(char c);
 
 
@@ -46,7 +47,7 @@ class string{
 		//reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
 		//string& operator=(const char* s); // assigns the value s to the string
 		//string operator+(const string& lhr, const string& rhs); // returns the concatenation of lhr adn rhs
-
+  
 	protected :
 		char* string_; // dynamic array containing the string's chars
 		size_t capacity_ = 0; // needs to be updated each time we allocate or desallocate memory space
