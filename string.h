@@ -44,7 +44,7 @@ class string{
 		~string(); // destructor
 		size_t capacity(); // returns the memory allocated to the array of char
 		bool empty(); // true if length = 0
-		//reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
+		void reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
 		//string& operator=(const char* s); // assigns the value s to the string
 		//string operator+(const string& lhr, const string& rhs); // returns the concatenation of lhr adn rhs
   

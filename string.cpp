@@ -134,3 +134,24 @@ size_t string::capacity(){ // returns the memory allocated to the array of char
 bool string::empty(){
 	return length()==0;
 }
+
+void string::reserve(size_t n){ // allocate or desallocate memory in order to have a capacity of n
+
+    if (length()<n)
+    {
+        char temp[length()+1] = {*c_str()};
+        this->~string();
+        capacity_ = n;
+        string_ = new char[capacity_];
+
+        int i = 0;
+	    do
+	    {
+	        string_[i] = temp[i];
+	        i++;
+	    }
+	    while(temp[i]!='\0');
+
+    }
+
+}
