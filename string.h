@@ -1,6 +1,6 @@
 typedef long unsigned int size_t;
 
-int char_length(char * a)		//function which will count the length of char*
+/*int char_length(char * a)		//function which will count the length of char*
 {
 	// checking the length of parameter "a"
 	int counter = 0;
@@ -12,7 +12,7 @@ int char_length(char * a)		//function which will count the length of char*
 	}
 	return counter;
 	// counter is the length of parameter "a"
-}
+}*/
 
 class string{
 	public :
@@ -21,7 +21,7 @@ class string{
 		
 
 		// Member A
-		string(const string a);  //copy constructor
+		//string(const string a);  //copy constructor
 		char* c_str(); 
 		size_t size(); //method which will count number of chars in string
 		void clear(); //method which will delete all chars 
@@ -31,23 +31,13 @@ class string{
 		
 		//Member B
 		string(char* c_string);	//constructor from a c-sting
-    int length();
-   	//size_t max_size();
-   	void resize(size_t n, char c);
-    //string operator=(const string&);
-    //string operator+(const string&);
-    //string operator=(const string string&);
+		int length();
+		//size_t max_size();
+		void resize(size_t n, char c);
+		//string operator=(const string&);
+		//string operator+(const string&);
+		//string operator=(const string string&);
 		//string operator+(char c);
-
-		//Member B
-		string(char &string);	//constructor from a c-sting
-        	size_t length();
-        	size_t max_size();
-        	void resize(size_t n, char c);
-        	string operator=(const string&);
-        	string operator+(const string&);
-        	string operator=(const string string&);
-		string operator+(char c);
 
 
 		// Member C
@@ -61,7 +51,7 @@ class string{
 	protected :
 		char* string_; // dynamic array containing the string's chars
 		size_t capacity_ = 0; // needs to be updated each time we allocate or desallocate memory space
-		int length;
+		//int length;
 	private:
 		static int num_strings;
 };
