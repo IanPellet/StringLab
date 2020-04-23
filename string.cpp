@@ -155,3 +155,29 @@ void string::reserve(size_t n){ // allocate or desallocate memory in order to ha
     }
 
 }
+
+string& string::operator=(const char* s){ // assigns the value s to the string
+	int lens = 0;
+    do
+    {
+        lens++;
+    }
+    while(s[lens]!='\0');
+
+    char* temp = new char[lens];
+
+    int i = 0;
+    do
+    {	
+    	temp[i] = s[i];
+        i++;
+    }
+    while(s[i]!='\0');
+
+    string returnedstr(temp);
+
+    delete []temp;
+	temp = nullptr;
+
+    return returnedstr;
+}

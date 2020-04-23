@@ -49,5 +49,19 @@ int main()
 		std::cout << "not working" << std::endl;
 	}
 
+	// operator=(const char*) test
+	hello = hey;
+	bool eqchartest = hello.c_str()==hey.c_str();
+	std::cout << "operator=(const char*) : ";
+	if(eqchartest){
+		std::cout << "ok" << std::endl;
+	}else{
+		std::cout << "not working" << std::endl;
+	}
+
+	hello.~string();
+	hey.~string();
+	o.~string();
+
 	return 0;
 }
