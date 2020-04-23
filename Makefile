@@ -4,7 +4,7 @@ check: test
 	./test
 
 test: string_tests.o string.o
-	g++ string_tests.o -o test
+	g++ string_tests.o string.o -o test
 
 string_tests.o: string_tests.cpp
 	g++ -c string_tests.cpp -o string_tests.o
