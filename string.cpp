@@ -7,17 +7,16 @@ int string::HowManyStrings()
 	return num_strings;
 }
 
-/*string::string(const char* s, int size)
+string::string(const char* s, int size)
 {
-	length = size;
-	string_ = new char[length + 1];
-	for (int i - 0; i < length + 1; i++)
+	this ->length_ = size;
+	string_ = new char[this->length_ + 1];
+	for (int i = 0; i < this->length_ + 1; i++)
 	{
 		string_[i] = s[i];
 	}
 	num_strings++;
-
-}*/
+}
 
 
 //Member A
@@ -25,55 +24,61 @@ char* string::c_str(){ // returns the content of the string
 	return string_;
 }
 
-/*string(const string a) //copy constructor, which copies all data from another string 
+string(const string a) //copy constructor, which copies all data from another string 
 {							   // and then make new string with all of it
 	capacity_ = a.capacity_;
-	length = a.length;
-	string_ = new char[a.length];
-	for (int i = 0; i < a.length; i++)
+	
+	string_ = new char[a.length_];
+	for (int i = 0; i < a.length_; i++)
 	{
 		string_[i] = a.string_[i];
 	}
+	this->length_ = a.length_;
 	num_strings++;
-}*/
+}
 
-/*size_t string::size()		// this function has to just return the length which is already in memory
+int string::size()		// this function has to just return the length which is already in memory
 {
-	return length;
-}*/
+	return length_;
+}
 
 void string::clear()			//clearing the string is just deleting all chars from the string and pointing string_ to nullptr
 {
+	length_ = 0;
 	delete[] string_;
 	string_ = nullptr;
+	capacity_ = 0;
 }
 
-/*string& string::operator=(char* a)
+string& string::operator=(char* a)
 {
 	delete[] string_;
 	
-	length = char_length(a);   // taking the length of chars in a-string
-	string_ = new char[length];
-	for (int i = 0; i < length; i++)
+	length_ = char_length(a);   // taking the length of chars in a-string
+	string_ = new char[length_];
+	for (int i = 0; i < length_; i++)
 	{
 		string_[i] = a[i];			//adding new chars to string_ from a-string
 	}	
 	//TODO: implement how to change the capacity
-}*/
+	return *this;
+}
 
-/*string string::operator+(const char* a)
+string string::operator+(char* a)
 {
-	int temp = length;
-	length += char_length(a);
+	int temp = length_;
+	length_ += char_length(a);
 	int counter = 0;
-	for (int i = temp; i < length; i++)
+	for (int i = temp; i < length_; i++)
 	{
 		string_[i] = a[counter];
 		counter++;
 	}
 
 	//TODO: implement how to change the capacity
-}*/
+
+	return *this;
+}
 
 
 //member B
