@@ -98,10 +98,10 @@ string::string(char* c_string)
         i++;
     }
     while(c_string[i]!='\0');
-	string_[i]='\0'
+	string_[i]='\0';
 }
 
-int string::length()
+int string::length() const
 {
     int i = 0;
     while(string_[i]!='\0')
@@ -111,7 +111,7 @@ int string::length()
     return i;
 }
 
-void string::resize(size_t n, char c)
+void string::resize(size_t n, char c) 
 {
     if (length()<n)
     {
@@ -128,16 +128,16 @@ void string::resize(size_t n, char c)
 
 
 
-string& string::operator=(const string& str)
+strin& string::operator=(const string& str)
 {
-	size_t new_s = str.length();
+	size_t new_s = str.length();        
 	string_ = new char[new_s+1];
 	strcpy(string_, str.c_str());
 	return *this;
 };
 
 
-size_t string::max_size() const
+size_t string::max_size() const   
 {
 	return 100;
 };
@@ -153,8 +153,8 @@ string string::operator+(char c)
 		string new_s(n_c);
 		return n_c;
 	};
-	string new_s(string_);
-	return new_s;
+  string new_s(string_);
+  return new_s;
 };
 
 
