@@ -98,6 +98,7 @@ string::string(char* c_string)
         i++;
     }
     while(c_string[i]!='\0');
+	string_[i]='\0'
 }
 
 int string::length()
@@ -124,6 +125,45 @@ void string::resize(size_t n, char c)
         string_[j]='\0';
     }
 }
+
+
+
+string& string::operator=(const string& str)
+{
+	size_t new_s = str.length();
+	string_ = new char[new_s+1];
+	strcpy(string_, str.c_str());
+	return *this;
+};
+
+
+size_t string::max_size() const
+{
+	return 100;
+};
+
+string string::operator+(char c)
+{
+	if (length()+1 <= max_size())
+	{
+		char* n_c = new char[length()+2];
+		strcpy(n_c, string_);
+		n_c[length()] = c;
+		n_c[length()+1] = '\0';
+		string new_s(n_c);
+		return n_c;
+	};
+	string new_s(string_);
+	return new_s;
+};
+
+
+
+
+
+
+
+
 
 // Member C
 string::~string(){ // destructor
