@@ -19,11 +19,12 @@ class string{
 		
 		//Member B
 		string(char* c_string);	//constructor from a c-sting
-		int length();
-		size_t max_size();
-		void resize(size_t n, char c);
+		int length() const;
+		int max_size() const;
+		void resize(int n, char c);
 		string& operator=(const string& str);
-                string operator+(char c);
+    		string operator+(char c);
+
 		
 
 
