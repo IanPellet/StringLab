@@ -22,7 +22,7 @@ class string{
 
 		// Member A
 		//string(const string a);  //copy constructor
-		char* c_str(); 
+		char* c_str() const; 
 		size_t size(); //method which will count number of chars in string
 		void clear(); //method which will delete all chars 
 		string& operator=(char* a);
@@ -46,7 +46,7 @@ class string{
 		bool empty(); // true if length = 0
 		void reserve(size_t n); // allocate or desallocate memory in order to have a capacity of n
 		string& operator=(const char* s); // assigns the value s to the string
-		//string operator+(const string& lhr, const string& rhs); // returns the concatenation of lhr adn rhs
+		
   
 	protected :
 		char* string_; // dynamic array containing the string's chars
@@ -55,4 +55,6 @@ class string{
 	private:
 		static int num_strings;
 };
+
+string operator+(const string& lhs, const string& rhs); // returns the concatenation of lhs adn rhs
 

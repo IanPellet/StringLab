@@ -21,7 +21,7 @@ int string::HowManyStrings()
 
 
 //Member A
-char* string::c_str(){ // returns the content of the string
+char* string::c_str() const { // returns the content of the string
 	return string_;
 }
 
@@ -173,6 +173,41 @@ string& string::operator=(const char* s){ // assigns the value s to the string
         i++;
     }
     while(s[i]!='\0');
+
+    string returnedstr(temp);
+
+    delete []temp;
+	temp = nullptr;
+
+    return returnedstr;
+}
+
+string operator+(const string& lhs, const string& rhs){ // returns the concatenation of lhs adn rhs
+	int lenlhs = 0;
+    while(lhs.c_str()[lenlhs]!='\0'){
+        lenlhs++;
+    }
+    int lenrhs = 0;
+    do
+    {
+        lenrhs++;
+    }
+    while(rhs.c_str()[lenrhs]!='\0');
+
+    char* temp = new char[lenlhs + lenrhs +1];
+
+    int i = 0;
+    while(lhs.c_str()[i]!='\0'){
+    	temp[i] = lhs.c_str()[i];
+    	i++;
+    }
+    do
+    {	
+    	temp[i] = rhs.c_str()[i-lenlhs];
+        i++;
+    }
+    while(rhs.c_str()[i-lenlhs]!='\0');
+    temp[lenlhs + lenrhs] = '\0';
 
     string returnedstr(temp);
 

@@ -1,6 +1,7 @@
 #include "string.h"
 #include <iostream>
 #include <iterator>
+#include <cstring>
 
 int main()
 {
@@ -59,9 +60,25 @@ int main()
 		std::cout << "not working" << std::endl;
 	}
 
+	// operator+(const string&, const string&) test
+	char abc[] = "abc";
+	char defgh[] = "defgh";
+	string str1(abc);
+	string str2(defgh);
+	string concat = str1+str2;
+	bool plusstrstrtest = std::strcmp(concat.c_str(), "abcdefgh") == 0;
+	std::cout << "operator+(const string&, const string&) : ";
+	if(plusstrstrtest){
+		std::cout << "ok" << std::endl;
+	}else{
+		std::cout << "not working" << std::endl;
+	}
+
 	hello.~string();
 	hey.~string();
 	o.~string();
+	str1.~string();
+	str2.~string();
 
 	return 0;
 }
