@@ -13,11 +13,11 @@ int main()
 	// capacity test
 	char helloc[] = "Hello";
 	string hello(helloc);
-	bool capatest = hello.capacity() == std::end(helloc) - std::begin(helloc) - 1;
+	bool capatest = hello.capacity() == std::end(helloc) - std::begin(helloc) - 1; // unitary test
 	std::cout << "Capacity : ";
 	if(capatest){
 		std::cout << "ok" << std::endl;
-	}else{
+	}else{                                           // test output
 		std::cout << "not working" << std::endl;
 	}
 
@@ -26,11 +26,11 @@ int main()
 	char oc[] = "";
 	string hey(heyc);
 	string o(oc);
-	bool emptytest = (o.empty() && !hey.empty());
+	bool emptytest = (o.empty() && !hey.empty()); // unitary test
 	std::cout << "Empty : ";
 	if(emptytest){
 		std::cout << "ok" << std::endl;
-	}else{
+	}else{                                           // test output
 		std::cout << "not working" << std::endl;
 	}
 
@@ -42,21 +42,21 @@ int main()
 	hey.reserve(n2);
 	size_t capahello1 = hello.capacity();
 	size_t capahey1 = hey.capacity();
-	bool restest = (capahello1 == n1) && (capahey0 == capahey1);
+	bool restest = (capahello1 == n1) && (capahey0 == capahey1); // unitary test
 	std::cout << "Reserve : ";
 	if(restest){
 		std::cout << "ok" << std::endl;
-	}else{
+	}else{                                           // test output
 		std::cout << "not working" << std::endl;
 	}
 
 	// operator=(const char*) test
 	hello = heyc;
-	bool eqchartest = std::strcmp(hello.c_str(), heyc) == 0;
+	bool eqchartest = std::strcmp(hello.c_str(), heyc) == 0; // unitary test
 	std::cout << "operator=(const char*) : ";
 	if(eqchartest){
 		std::cout << "ok" << std::endl;
-	}else{
+	}else{                                           // test output
 		std::cout << "not working" << std::endl;
 	}
 
@@ -66,14 +66,15 @@ int main()
 	string str1(abc);
 	string str2(defgh);
 	string concat = str1+str2;
-	bool plusstrstrtest = std::strcmp(concat.c_str(), "abcdefgh") == 0;
+	bool plusstrstrtest = std::strcmp(concat.c_str(), "abcdefgh") == 0; // unitary test
 	std::cout << "operator+(const string&, const string&) : ";
 	if(plusstrstrtest){
 		std::cout << "ok" << std::endl;
-	}else{
+	}else{                                           // test output
 		std::cout << "not working" << std::endl;
-	}
+	}                 
 
+	// destruction of all used strings
 	hello.~string();
 	hey.~string();
 	o.~string();

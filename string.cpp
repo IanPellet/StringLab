@@ -16,6 +16,7 @@ string::string(const char* s, int size)
 		string_[i] = s[i];
 	}
 	num_strings++;
+	capacity_ = this->length_ + 1;
 }
 
 
@@ -35,6 +36,7 @@ string::string(const string& a) //copy constructor, which copies all data from a
 	}
 	this->length_ = a.length_;
 	num_strings++;
+	capacity_ = a.length_;
 }
 
 int string::size()		// this function has to just return the length which is already in memory
@@ -42,7 +44,7 @@ int string::size()		// this function has to just return the length which is alre
 	return length_;
 }
 
-void string::clear()			//clearing the string is just deleting all chars from the string and pointing string_ to nullptr
+void string::clear() //clearing the string is just deleting all chars from the string and pointing string_ to nullptr
 {
 	length_ = 0;
 	delete[] string_;
@@ -60,8 +62,8 @@ string& string::operator=(char* a)
 	{
 		string_[i] = a[i];			//adding new chars to string_ from a-string
 	}	
-	//TODO: implement how to change the capacity
 	return *this;
+	capacity_ = length_;
 }
 
 string string::operator+(char* a)
@@ -74,9 +76,7 @@ string string::operator+(char* a)
 		string_[i] = a[counter];
 		counter++;
 	}
-
 	//TODO: implement how to change the capacity
-
 	return *this;
 }
 
@@ -173,20 +173,20 @@ size_t string::capacity(){ // returns the memory allocated to the array of char
 }
 
 bool string::empty(){
-	return length()==0;
+	return length()==0; 
 }
 
 void string::reserve(size_t n){ // allocate or desallocate memory in order to have a capacity of n
 
-    if (length()<n)
+    if (length()<n) 
     {
-        char temp[length()+1] = {*c_str()};
-        this->~string();
-        capacity_ = n;
-        string_ = new char[capacity_];
+        char temp[length()+1] = {*c_str()}; //saves the curent content of the string to temp
+        this->~string(); // destructs the current object to desallocate all its memory
+        capacity_ = n; // updates the capacity_
+        string_ = new char[capacity_]; // allocate the asked amount of space to our new string
 
         int i = 0;
-	    do
+	    do // fills this newly allocated space with the same content as before deleting it
 	    {
 	        string_[i] = temp[i];
 	        i++;
@@ -204,23 +204,19 @@ string& string::operator=(const char* s){ // assigns the value s to the string
         lens++;
     }
     while(s[lens]!='\0');
+    // lens now contain the length of the parameter s 
 
-    char* temp = new char[lens];
+    delete[] string_; // errases what's currently contained in string_
+	length_ = lens; // sets the new length_ of our string_
+	reserve(length_+1); // reserve enougth memory space in order for s to fit in string_
 
-    int i = 0;
-    do
-    {	
-    	temp[i] = s[i];
-        i++;
-    }
-    while(s[i]!='\0');
+	for (int i = 0; i < length_; i++)
+	{
+		string_[i] = s[i];			//adding new chars to string_ from s
+	}
+	string_[length_+1]='\0';
 
-    string returnedstr(temp);
-
-    delete []temp;
-	temp = nullptr;
-
-    return returnedstr;
+	return *this;
 }
 
 string operator+(const string& lhs, const string& rhs){ // returns the concatenation of lhs adn rhs
@@ -234,26 +230,28 @@ string operator+(const string& lhs, const string& rhs){ // returns the concatena
         lenrhs++;
     }
     while(rhs.c_str()[lenrhs]!='\0');
+    // lenlhs and lenrhs respectively contain the length of lhs and rhs
 
-    char* temp = new char[lenlhs + lenrhs +1];
+    char* temp = new char[lenlhs + lenrhs +1]; // temp char arry will contain the concatenation of lhs and rhs
 
     int i = 0;
     while(lhs.c_str()[i]!='\0'){
     	temp[i] = lhs.c_str()[i];
     	i++;
     }
-    do
+    do                    
     {	
     	temp[i] = rhs.c_str()[i-lenlhs];
         i++;
     }
     while(rhs.c_str()[i-lenlhs]!='\0');
     temp[lenlhs + lenrhs] = '\0';
+    //temp is now filled with the cotent of lhs followed by the content of rhs
 
-    string returnedstr(temp);
+   	string returnedstr(temp); // creation of a new string containing the concatenation of lhs and rhs
 
     delete []temp;
-	temp = nullptr;
+	temp = nullptr; // deletion of temp
 
-    return returnedstr;
+    return returnedstr; // returns the newly created string
 }
