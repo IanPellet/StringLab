@@ -51,8 +51,8 @@ int main()
 	}
 
 	// operator=(const char*) test
-	hello = hey;
-	bool eqchartest = hello.c_str()==hey.c_str();
+	hello = heyc;
+	bool eqchartest = std::strcmp(hello.c_str(), heyc) == 0;
 	std::cout << "operator=(const char*) : ";
 	if(eqchartest){
 		std::cout << "ok" << std::endl;
