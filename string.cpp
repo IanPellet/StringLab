@@ -86,6 +86,7 @@ string string::operator+(char* a)
 }
 
 
+
 //member B
 string::string(char* c_string)
 {
@@ -116,6 +117,8 @@ int string::length() const
     return i;
 }
 
+
+
 void string::resize(size_t n, char c) 
 {
     if (length()<n)
@@ -124,22 +127,37 @@ void string::resize(size_t n, char c)
         {
             string_[i]=c;
         }
+        string_[n]='\0';
     }
-    for(int j=n; j<capacity_;j++)
+    else
+    {
+      for(int j=n; j<length();j++)
     {
         string_[j]='\0';
     }
+    }
+    
+    capacity_=n;
 }
 
 
 
-/*string& string::operator=(const string& str)
+string& string::operator=(const string& str)
 {
-	size_t new_s = str.length();        
+	size_t new_s = str.length();
+  char* str_2 = str.c_str();        
 	string_ = new char[new_s+1];
-	strcpy(string_, str.c_str()); //‘strcpy’ was not declared in this scope
+  int i=0;
+  while(str_2[i]!='\0')     //copy the content of str in string_
+  {
+    string_[i]=str_2[i];
+    i++;
+  }
+  string_[i]=str_2[i];    //for the end of the str
+  resize(i,'\0');  //resize in the case where of the size of str is inferior of string_
+
 	return *this;
-};*/
+};
 
 
 size_t string::max_size() const   
@@ -147,20 +165,26 @@ size_t string::max_size() const
 	return 100;
 };
 
-/*string string::operator+(char c)
+
+string string::operator+(char c)
 {
 	if (length()+1 <= max_size())
 	{
 		char* n_c = new char[length()+2];
-		strcpy(n_c, string_); //‘strcpy’ was not declared in this scope
+    int i =0;
+    while(string_[i]!='\0')
+    {
+        n_c[i]=string_[i];
+        i++;
+    }
 		n_c[length()] = c;
 		n_c[length()+1] = '\0';
 		string new_s(n_c);
 		return n_c;
-	};
+	}
   string new_s(string_);
   return new_s;
-};*/
+};
 
 
 
