@@ -5,7 +5,49 @@
 
 int main()
 {
+
+
+// Member A
+	/*
+	int char_size; char a;
+	std::cout << "Type the size of a string: " << std::endl;
+	std::cin >> char_size;
+	char * mychar=nullptr;
+	mychar = new char[char_size];
+	for (int i = 0; i < char_size; i++)
+	{
+		std::cin >> a;
+		mychar[i] = a;
+	}
+	std::cout <<"Those chars from mychar are: "<< mychar << std::endl;;
+	string mystring(mychar,char_size);
+	string mystring2(mystring); 
+	char * mychar2 = nullptr;
+	mychar2 = mystring.c_str();
+	std::cout <<"Second char* from copy constructor is: "<< mychar2 << std::endl;
+
+	std::cout << "Size of this string is equal to: " << mystring.size() << std::endl;
+
+	mystring2.clear();
+
+	std::cout << "After cleaning, size of string2 is equal to: " << mystring2.size() << std::endl;
 	
+	char extra_char[] = "this is extra text";
+	char* check = nullptr;
+	mystring = extra_char;
+	check = mystring.c_str();
+	std::cout << check << std::endl;
+
+	string mystring3((mystring + extra_char));
+	check = mystring3.c_str();
+	std::cout << check << std::endl;
+
+	delete[] mychar; 
+	//delete[] mychar2;
+	//delete[] check;
+
+
+	*/	
 //member B :
 	
 	  //test constructor from c_string : 
