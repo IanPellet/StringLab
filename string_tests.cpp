@@ -5,10 +5,6 @@
 
 int main()
 {
-	// Dummy constructor test (can be deleted once a real constructor is implemented)
-	//string hello();
-	//std::cout << hello.c_str() << std::endl;
-
 // Member C
 	// capacity test
 	char helloc[] = "Hello";

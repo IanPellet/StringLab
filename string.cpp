@@ -127,7 +127,6 @@ void string::resize(size_t n, char c)
 }
 
 
-
 /*string& string::operator=(const string& str)
 {
 	size_t new_s = str.length();        
@@ -156,9 +155,6 @@ size_t string::max_size() const
   string new_s(string_);
   return new_s;
 };*/
-
-
-
 
 
 // Member C
