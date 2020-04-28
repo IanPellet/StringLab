@@ -17,13 +17,16 @@ class string{
 		string operator+(char* a);
 
 		
+		
 		//Member B
 		string(char* c_string);	//constructor from a c-sting
 		int length() const;
 		size_t max_size() const;
 		void resize(size_t n, char c);
 		string& operator=(const string& str);
-    	string operator+(char c);
+    		string operator+(char c);
+
+		
 
 		
 
