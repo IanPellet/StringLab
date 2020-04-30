@@ -166,7 +166,7 @@ int main()
 	if(capa_test3)
 	  std::cout<<"La longueur est égale, opérateur + fonctionnel"<< std::endl;
 	else
-	  std::cout<<"La longueur est différente, opérateur + défectueux"<<std::endl;  
+	  std::cout<<"La longueur est différente, opérateur + défectueux\n"<<std::endl;  
 
 
 	

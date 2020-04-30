@@ -11,6 +11,7 @@ string::string(const char* s, int size)
 {
 	this ->length_ = size;
 	string_ = new char[this->length_ + 1];
+	capacity_ = this->length_ + 1;
 	for (int i = 0; i < this->length_ + 1; i++)
 	{
 		string_[i] = s[i];
@@ -26,9 +27,9 @@ char* string::c_str() const { // returns the content of the string
 
 string::string(const string& a) //copy constructor, which copies all data from another string 
 {							   // and then make new string with all of it
-	capacity_ = a.capacity_;
 	
 	string_ = new char[a.length_];
+	capacity_ = a.length_;
 	for (int i = 0; i < a.length_; i++)
 	{
 		string_[i] = a.string_[i];
@@ -56,11 +57,11 @@ string& string::operator=(char* a)
 	
 	length_ = char_length(a);   // taking the length of chars in a-string
 	string_ = new char[length_];
+	capacity_=length_;
 	for (int i = 0; i < length_; i++)
 	{
 		string_[i] = a[i];			//adding new chars to string_ from a-string
 	}	
-	//TODO: implement how to change the capacity
 	return *this;
 }
 
@@ -69,6 +70,7 @@ string string::operator+(char* a)
 	string ne;
 	ne.length_ = (this->length_)+char_length(a);
 	ne.string_ = new char [ne.length_];
+	capacity_=ne.length_;
 	for (int i = 0; i < length_; i++)
 	{
 		ne.string_[i] = string_[i];
@@ -79,8 +81,6 @@ string string::operator+(char* a)
 		string_[i] = a[counter];
 		counter++;
 	}
-
-	//TODO: implement how to change the capacity
 
 	return ne;
 }
@@ -137,7 +137,6 @@ void string::resize(size_t n, char c)
     }
     }
     
-    capacity_=n;
 }
 
 
@@ -145,16 +144,17 @@ void string::resize(size_t n, char c)
 string& string::operator=(const string& str)
 {
 	size_t new_s = str.length();
-  char* str_2 = str.c_str();        
+  	char* str_2 = str.c_str();        
 	string_ = new char[new_s+1];
-  int i=0;
-  while(str_2[i]!='\0')     //copy the content of str in string_
-  {
-    string_[i]=str_2[i];
-    i++;
-  }
-  string_[i]=str_2[i];    //for the end of the str
-  resize(i,'\0');  //resize in the case where of the size of str is inferior of string_
+	capacity_=new_s+1;
+	  int i=0;
+	  while(str_2[i]!='\0')     //copy the content of str in string_
+	  {
+	    string_[i]=str_2[i];
+	    i++;
+	  }
+	  string_[i]=str_2[i];    //for the end of the str
+	  resize(i,'\0');  //resize in the case where of the size of str is inferior of string_
 
 	return *this;
 };
@@ -180,9 +180,11 @@ string string::operator+(char c)
 		n_c[length()] = c;
 		n_c[length()+1] = '\0';
 		string new_s(n_c);
+		capacity_=length()+2;
 		return n_c;
 	}
   string new_s(string_);
+  capacity_=new_s.capacity();
   return new_s;
 };
 
