@@ -39,16 +39,16 @@ int main()
 	check = mystring.c_str();
 	std::cout << check << std::endl;
 
-	string mystring3((mystring + extra_char));
-	check = mystring3.c_str();
+	//string mystring3((mystring + extra_char)); //there's an issue with the operator+
+	//check = mystring3.c_str();
 	std::cout << check << std::endl;
 
 	delete[] mychar; 
-	//delete[] mychar2;		//some strange error which i dont understand so i left it in comment
+	delete[] mychar2;		
 	//delete[] check;
 
 
-		
+	
 //member B :
 	
 	  //test constructor from c_string : 
@@ -66,7 +66,7 @@ int main()
 	  }
 
 	  if(content_test)
-	    std::cout<<"Même contenu entre le c_string et notre string issu du constructeur, constructeur ok"<<std::endl;
+	    std::cout<<"\nMême contenu entre le c_string et notre string issu du constructeur, constructeur ok"<<std::endl;
 	  else
 	    std::cout<<"contenu différent entre le c_string et notre string issu du constructeur, constructeur pas ok"<<std::endl;
 
