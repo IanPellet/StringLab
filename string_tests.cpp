@@ -8,19 +8,20 @@ int main()
 
 
 // Member A
-	/*
+	
 	int char_size; char a;
 	std::cout << "Type the size of a string: " << std::endl;
 	std::cin >> char_size;
 	char * mychar=nullptr;
-	mychar = new char[char_size];
+	mychar = new char[char_size]; //making the char* array of chars
 	for (int i = 0; i < char_size; i++)
 	{
+		std::cout<<"Put the letter with index: " << i<<std::endl;
 		std::cin >> a;
 		mychar[i] = a;
 	}
-	std::cout <<"Those chars from mychar are: "<< mychar << std::endl;;
-	string mystring(mychar,char_size);
+	std::cout <<"Those chars from my_char are: "<< mychar << std::endl; //it is hard to show how the string looks like without having methods that show the string
+	string mystring(mychar,char_size);				    // so i just use method c_str and show what it return
 	string mystring2(mystring); 
 	char * mychar2 = nullptr;
 	mychar2 = mystring.c_str();
@@ -32,9 +33,9 @@ int main()
 
 	std::cout << "After cleaning, size of string2 is equal to: " << mystring2.size() << std::endl;
 	
-	char extra_char[] = "this is extra text";
+	char extra_char[] = "this is extra text"; 		//some other char* array to test operator+ and operator =
 	char* check = nullptr;
-	mystring = extra_char;
+	mystring = extra_char;			
 	check = mystring.c_str();
 	std::cout << check << std::endl;
 
@@ -43,11 +44,11 @@ int main()
 	std::cout << check << std::endl;
 
 	delete[] mychar; 
-	//delete[] mychar2;
+	//delete[] mychar2;		//some strange error which i dont understand so i left it in comment
 	//delete[] check;
 
 
-	*/	
+		
 //member B :
 	
 	  //test constructor from c_string : 
